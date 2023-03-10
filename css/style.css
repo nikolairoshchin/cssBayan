@@ -1,0 +1,60 @@
+.container{
+	margin: 10px auto;
+	width: 400px;
+	cursor: pointer;
+}
+
+.container:hover label::after {
+	content: '';
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	right: 10px;
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+	background-image: url('../assets/icons/plus_icon.svg');
+}
+
+.container:hover input:checked + label::after{
+	background-image: url('../assets/icons/cross_icon.svg');
+}
+
+.container label{
+	display: block;
+	position: relative;
+	z-index: 25;
+	height: 24px;
+	font-size: 16px;
+	padding: 5px 20px;
+}
+
+.container label:hover{
+	background: lightgrey;
+	cursor: pointer;
+}
+
+.container label:hover ~ img{
+	transition: all 0.2s ease-in-out;
+}
+
+.container input{
+	display: none;
+}
+
+.container img{
+	width: auto;
+	position: relative;
+	z-index: 10;
+	overflow: hidden;
+	height: 0;
+	transition: all 0.2s ease-in-out;
+}
+
+.container input:checked ~ img{
+	transition: all 0.2s ease-in-out;
+}
+
+.container input:hover ~ img.mem,
+.container input:checked ~ img.mem {
+	height: 25vh;
+}
